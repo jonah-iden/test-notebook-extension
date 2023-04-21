@@ -38,7 +38,7 @@ export class TestNotebookSerializer implements vscode.NotebookSerializer {
                         if (key === "text/plain" && value instanceof Array) {
                             return value.map(value => vscode.NotebookCellOutputItem.text(value));
                         }
-                    })
+                    }).filter(value => value !== undefined)
                 });
             }
         });
